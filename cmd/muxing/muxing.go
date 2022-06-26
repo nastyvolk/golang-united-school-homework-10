@@ -40,7 +40,7 @@ func DataHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Fprintf(w, "I got message:\n%s!", string(p))
+	fmt.Fprintf(w, `I got message:\n%s!`, string(p))
 }
 
 func HeadersHandler(w http.ResponseWriter, r *http.Request) {
@@ -52,7 +52,8 @@ func HeadersHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Fprintf(w, "a+b: %v!", a+b)
+	c := a + b
+	w.Header().Set("a+b", strconv.Itoa(c))
 }
 
 func NotDefinedHandler(w http.ResponseWriter, r *http.Request) {
