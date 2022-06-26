@@ -40,7 +40,7 @@ func DataHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Fprintf(w, `I got message:\n%s!`, string(p))
+	fmt.Fprintf(w, `I got message:\n%s`, string(p))
 }
 
 func HeadersHandler(w http.ResponseWriter, r *http.Request) {
